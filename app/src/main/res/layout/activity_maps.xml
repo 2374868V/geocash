@@ -5,4 +5,17 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.guusvdham.geocash.MapsActivity" />
+    tools:context="com.example.guusvdham.geocash.MapsActivity"
+
+    >
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/button"
+        android:background="@null"
+    />
+</fragment>
+
