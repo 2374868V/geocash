@@ -1,10 +1,14 @@
 package com.example.guusvdham.geocash;
 
+import android.media.Image;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -54,8 +58,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng glasgow = new LatLng(56, -4);
+        mMap.addMarker(new MarkerOptions().position(glasgow).title("Marker in Glasgow"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(glasgow));
+
+        ImageButton menuButton = (ImageButton) findViewById(R.id.menuButton);
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //display menu here
+                finish();
+            }
+        });
+
+        ImageButton addGeoMarkerButton = (ImageButton) findViewById(R.id.addGeoMarkerButton);
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //open the add geomarker window here
+                finish();
+            }
+        });
     }
 }
