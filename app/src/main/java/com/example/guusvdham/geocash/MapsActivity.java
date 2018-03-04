@@ -1,6 +1,7 @@
 package com.example.guusvdham.geocash;
 
 import android.app.TabActivity;
+import android.content.Intent;
 import android.media.Image;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -97,7 +98,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View view) {
                 //display menu here
-                
             }
         });
 
@@ -107,7 +107,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View view) {
                 //open the add geomarker window here
-
+                startActivity(new Intent(MapsActivity.this, StoryActivity.class));
             }
         });
     }
