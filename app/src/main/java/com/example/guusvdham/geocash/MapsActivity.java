@@ -7,8 +7,10 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Marker;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -39,8 +41,41 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        LatLng sydney = new LatLng(55.873567, -4.292585);
+        Marker marker = mMap.addMarker(new MarkerOptions().position(sydney).title("hi").snippet("bye"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+
+        final LatLng MELBOURNE = new LatLng(-37.813, 144.962);
+        Marker melbourne = mMap.addMarker(new MarkerOptions()
+                .position(MELBOURNE)
+                .title("Melbourne")
+                .snippet("Population: 4,137,400"));
+
+
+        LatLng snowqualmie = new LatLng(47.5287132, -121.8253906);
+
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(snowqualmie)
+                .title("Snowqualmie Falls")
+                .snippet("Snoqualmie Falls is located 25 miles east of Seattle.")
+                .icon(BitmapDescriptorFactory.defaultMarker( BitmapDescriptorFactory.HUE_BLUE));
+
+        InfoWindowData info = new InfoWindowData();
+        info.setImage("snowqualmie");
+        info.setLink("wiki link here");
+        info.setStory("Lorem ipsum sit amet");
+        info.setTransport("Reach the site by bus, car and train.");
+
+        InfoWindowCustom customInfoWindow = new InfoWindowCustom(this);
+        mMap.setInfoWindowAdapter(customInfoWindow);
+
+        Marker m = mMap.addMarker(markerOptions);
+        m.setTag(info);
+        m.showInfoWindow();
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(snowqualmie));
+
+
     }
 }
