@@ -20,6 +20,9 @@
         completions."
     </string>
 
+    <string name="dialog_descripton">The University of Glasgow is the fourth oldest university in the English-speaking world and one of Scotlands
+        four ancient universities. It was founded in 1451.</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">Map</string>

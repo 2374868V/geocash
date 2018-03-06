@@ -124,7 +124,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        // TODO: Intent to the dialog
+        DialogOverview dialogOverview = new DialogOverview();
+        dialogOverview.show(getSupportFragmentManager(), "dialog fragment");
         return false;
     }
 }
