@@ -17,10 +17,11 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
+        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback, GoogleMap.OnMarkerClickListener  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,8 +116,15 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onMapReady(GoogleMap map) {
+        map.setOnMarkerClickListener(this);
         map.addMarker(new MarkerOptions()
-                .position(new LatLng(0, 0))
-                .title("Marker"));
+                .position(new LatLng(56, -4))
+                .title("Glasgow"));
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        // TODO: Intent to the dialog
+        return false;
     }
 }
